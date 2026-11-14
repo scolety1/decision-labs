@@ -1,0 +1,12 @@
+{
+  "scenario": "service-comparison",
+  "sourceFixture": "fixtures/service-expected-output.json",
+  "baselineContribution": 4200,
+  "proposedContribution": 4680,
+  "delta": 480,
+  "primeCostChange": 0.018,
+  "laborPercentChange": 0.012,
+  "riskLabel": "labor review",
+  "fixedOutputs": ["menuItemIds", "baselineServiceFacts", "sourceFixture"],
+  "caveat": "Local estimate only; verify costs before operational decisions."
+}

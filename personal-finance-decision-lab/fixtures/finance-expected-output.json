@@ -1,0 +1,9 @@
+{
+  "dashboardRows": [
+    { "metric": "monthlySurplus", "value": 1450 },
+    { "metric": "emergencyRunwayMonths", "value": 3 },
+    { "metric": "monthlyDebtInterest", "value": 76.97 },
+    { "metric": "nextDebtBalance", "value": 3776.97 },
+    { "metric": "rentVsBuyDelta", "value": 1300 }
+  ]
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Life Capacity Optimizer</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">Life capacity</p>
+          <h1 id="title">Plan the day by what can actually fit.</h1>
+          <p class="lede">Turn energy, fixed commitments, task load, and switching cost into a clear overload read.</p>
+        </div>
+        <article class="capacity-card">
+          <span>Feasibility</span>
+          <strong id="score">0%</strong>
+          <p id="risk">Risk loading...</p>
+        </article>
+      </section>
+
+      <section class="metrics" id="metrics" aria-label="Capacity metrics"></section>
+
+      <section class="workspace" aria-label="Schedule optimizer">
+        <article class="panel wide">
+          <div class="panel-heading">
+            <p class="eyebrow">Today</p>
+            <h2>Task load</h2>
+          </div>
+          <div class="timeline" id="tasks"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Adjustment</p>
+            <h2>Best pressure release</h2>
+          </div>
+          <div id="adjustments" class="adjustments"></div>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

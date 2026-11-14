@@ -1,0 +1,9 @@
+{
+  "dashboardRows": [
+    { "metric": "bucket", "value": "70-79%" },
+    { "metric": "count", "value": 2 },
+    { "metric": "averageConfidence", "value": 0.75 },
+    { "metric": "hitRate", "value": 0.5 },
+    { "metric": "averageBrier", "value": 0.3434 }
+  ]
+}

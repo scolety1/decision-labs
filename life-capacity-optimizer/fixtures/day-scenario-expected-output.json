@@ -1,0 +1,11 @@
+{
+  "scenario": "adjustment-comparison",
+  "sourceFixture": "fixtures/day-expected-output.json",
+  "options": [
+    { "option": "shrink", "minutesRecovered": 30, "riskLabel": "less tight" },
+    { "option": "defer", "minutesRecovered": 60, "riskLabel": "clearer" },
+    { "option": "drop", "minutesRecovered": 90, "riskLabel": "more open" }
+  ],
+  "fixedOutputs": ["taskIds", "busyWindows", "fixtureDate"],
+  "caveat": "Preview only; choose before anything changes."
+}

@@ -1,0 +1,9 @@
+{
+  "dashboardRows": [
+    { "metric": "weightedAverageContribution", "value": 11.33 },
+    { "metric": "primeCostPercent", "value": 0.5588 },
+    { "metric": "laborPercent", "value": 0.3088 },
+    { "metric": "eventContribution", "value": 2550 },
+    { "metric": "scenarioContributionDelta", "value": 490 }
+  ]
+}

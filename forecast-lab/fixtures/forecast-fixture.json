@@ -1,0 +1,14 @@
+{
+  "forecasts": [
+    { "id": "forecast-1", "statement": "Team A wins", "probability": 0.72, "outcome": true },
+    { "id": "forecast-2", "statement": "Launch ships Friday", "probability": 0.78, "outcome": false },
+    { "id": "forecast-3", "statement": "Rain before dinner", "probability": 0.41, "outcome": false }
+  ],
+  "expected": {
+    "bucket": "70-79%",
+    "count": 2,
+    "averageConfidence": 0.75,
+    "hitRate": 0.5,
+    "averageBrier": 0.3434
+  }
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forecast Lab</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">Forecast lab</p>
+          <h1 id="title">Track predictions like a decision system.</h1>
+          <p class="lede">Calibration, staleness, and review pressure stay visible so forecasts improve instead of drifting.</p>
+        </div>
+        <article class="score-card">
+          <span>Calibration bucket</span>
+          <strong id="bucket">--</strong>
+          <p id="bucket-helper">Grouped by stated probability.</p>
+        </article>
+      </section>
+
+      <section class="metrics" id="metrics" aria-label="Forecast metrics"></section>
+
+      <section class="board" aria-label="Forecast board">
+        <article class="panel wide">
+          <div class="panel-heading">
+            <p class="eyebrow">Forecasts</p>
+            <h2>Current sample set</h2>
+          </div>
+          <div class="table" id="forecast-table"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Review cue</p>
+            <h2 id="review-label">Current</h2>
+          </div>
+          <div class="pressure" id="review-score">0</div>
+          <p id="review-copy">No review needed yet.</p>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

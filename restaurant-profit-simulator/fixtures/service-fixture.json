@@ -1,0 +1,25 @@
+{
+  "menu": [
+    { "name": "Roast chicken", "price": 18, "ingredientCost": 5, "unitsSold": 40 },
+    { "name": "Market salad", "price": 12, "ingredientCost": 4, "unitsSold": 20 }
+  ],
+  "dailyCosts": {
+    "foodCost": 1200,
+    "beverageCost": 500,
+    "laborCost": 2100,
+    "sales": 6800
+  },
+  "event": {
+    "revenue": 8200,
+    "foodCost": 1900,
+    "beverageCost": 850,
+    "laborCost": 2300,
+    "rentalCost": 600
+  },
+  "expected": {
+    "weightedAverageContribution": 11.33,
+    "primeCostPercent": 0.5588,
+    "laborPercent": 0.3088,
+    "eventContribution": 2550
+  }
+}

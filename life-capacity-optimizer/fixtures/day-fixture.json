@@ -1,0 +1,21 @@
+{
+  "day": {
+    "wakingMinutes": 960,
+    "fixedCommitmentsMinutes": 540,
+    "recoveryBufferMinutes": 90,
+    "energyMultiplier": 0.75
+  },
+  "tasks": [
+    { "title": "Deep work", "minutes": 120, "context": "focus" },
+    { "title": "Errands", "minutes": 45, "context": "outside" },
+    { "title": "Admin", "minutes": 30, "context": "desk" }
+  ],
+  "expected": {
+    "availableMinutes": 248,
+    "loadMinutes": 195,
+    "switchCostMinutes": 24,
+    "score": 1,
+    "risk": "low",
+    "overByMinutes": 0
+  }
+}

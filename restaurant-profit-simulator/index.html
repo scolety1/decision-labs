@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Service Forecast</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #1f2328;
+        --muted: #667085;
+        --line: #d7dde5;
+        --paper: #fbfaf7;
+        --panel: #ffffff;
+        --good: #146c43;
+        --risk: #9a3412;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.45;
+      }
+
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+
+      header {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 6vw, 4.5rem);
+        letter-spacing: 0;
+        line-height: 0.95;
+      }
+
+      .summary {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+      }
+
+      .result,
+      .risk,
+      details {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .result {
+        padding: 22px;
+      }
+
+      .label {
+        color: var(--muted);
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+      }
+
+      .delta {
+        color: var(--good);
+        display: block;
+        font-size: clamp(3rem, 10vw, 6rem);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 0.9;
+      }
+
+      .metrics {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+
+      .metric {
+        padding: 14px 12px 0 0;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.35rem;
+      }
+
+      .risk {
+        align-content: start;
+        display: grid;
+        gap: 12px;
+        padding: 22px;
+      }
+
+      .risk strong {
+        color: var(--risk);
+        font-size: 1.5rem;
+      }
+
+      details {
+        margin-top: 16px;
+        padding: 0;
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        padding: 16px 18px;
+      }
+
+      .detail-grid {
+        border-top: 1px solid var(--line);
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 16px 18px 18px;
+      }
+
+      .detail-grid p {
+        margin: 0;
+      }
+
+      @media (max-width: 720px) {
+        main {
+          padding-top: 22px;
+        }
+
+        .summary,
+        .metrics,
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .metric {
+          border-top: 1px solid var(--line);
+          padding: 12px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="eyebrow">Service Forecast</span>
+        <h1>Scenario delta</h1>
+      </header>
+
+      <section class="summary" aria-label="Service forecast summary">
+        <div class="result">
+          <span class="label">Contribution change</span>
+          <span class="delta">+$490</span>
+          <div class="metrics" aria-label="Primary cost outputs">
+            <div class="metric">
+              <span class="label">Prime cost</span>
+              <strong>55.88%</strong>
+            </div>
+            <div class="metric">
+              <span class="label">Labor percent</span>
+              <strong>30.88%</strong>
+            </div>
+            <div class="metric">
+              <span class="label">Event contribution</span>
+              <strong>$2,550</strong>
+            </div>
+          </div>
+        </div>
+
+        <aside class="risk" aria-label="Risk label">
+          <span class="label">Risk label</span>
+          <strong>Labor review</strong>
+        </aside>
+      </section>
+
+      <details>
+        <summary>Inspect results</summary>
+        <div class="detail-grid">
+          <p><strong>Review:</strong> risk basis, formula, and source for the baseline and proposed service.</p>
+          <p><strong>Scenario delta:</strong> proposed contribution minus baseline contribution.</p>
+          <p><strong>Prime cost:</strong> food cost, beverage cost, and labor cost divided by sales.</p>
+          <p><strong>Labor percent:</strong> labor cost divided by sales.</p>
+          <p><strong>Risk basis:</strong> contribution rises by $490 while labor spend changes from the baseline.</p>
+          <p><strong>Source:</strong> local fixture data only; scenario flags are review notes, not recommendations.</p>
+        </div>
+      </details>
+    </main>
+  </body>
+</html>

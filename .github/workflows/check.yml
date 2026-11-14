@@ -1,0 +1,13 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test forecast-lab/test/index.test.js life-capacity-optimizer/test/index.test.js personal-finance-decision-lab/test/index.test.js restaurant-profit-simulator/test/index.test.js

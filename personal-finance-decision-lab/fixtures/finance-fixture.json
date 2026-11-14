@@ -1,0 +1,33 @@
+{
+  "snapshot": {
+    "incomeAfterTax": 6200,
+    "fixedExpenses": 3100,
+    "variableExpenses": 1200,
+    "minimumDebtPayments": 450,
+    "liquidSavings": 9000,
+    "essentialMonthlyExpenses": 3000
+  },
+  "debt": {
+    "balance": 4200,
+    "annualRate": 0.2199,
+    "payment": 500
+  },
+  "housing": {
+    "rent": { "rent": 2100, "renterInsurance": 20, "parking": 75 },
+    "buy": {
+      "principalInterest": 2450,
+      "propertyTax": 480,
+      "insurance": 140,
+      "hoa": 250,
+      "maintenanceReserve": 350,
+      "expectedTaxBenefit": 175
+    }
+  },
+  "expected": {
+    "monthlySurplus": 1450,
+    "emergencyRunwayMonths": 3,
+    "monthlyDebtInterest": 76.97,
+    "nextDebtBalance": 3776.97,
+    "rentVsBuyDelta": 1300
+  }
+}

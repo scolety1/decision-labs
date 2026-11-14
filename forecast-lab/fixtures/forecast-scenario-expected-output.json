@@ -1,0 +1,12 @@
+{
+  "scenario": "probability-review",
+  "sourceFixture": "fixtures/forecast-expected-output.json",
+  "currentProbability": 0.62,
+  "proposedProbability": 0.7,
+  "outcomeAssumptions": [
+    { "outcome": true, "currentBrier": 0.1444, "proposedBrier": 0.09, "delta": -0.0544 },
+    { "outcome": false, "currentBrier": 0.3844, "proposedBrier": 0.49, "delta": 0.1056 }
+  ],
+  "fixedOutputs": ["forecastId", "sourceFixture", "savedProbability"],
+  "caveat": "Preview only; this does not update the forecast or claim certainty."
+}

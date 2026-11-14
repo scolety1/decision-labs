@@ -1,0 +1,11 @@
+{
+  "scenario": "financial-comparison",
+  "sourceFixture": "fixtures/finance-expected-output.json",
+  "baselineSurplus": 850,
+  "proposedSurplus": 1025,
+  "monthlyDelta": 175,
+  "runwayChangeMonths": 0.4,
+  "debtInterestChange": -12,
+  "fixedOutputs": ["sourceSnapshotId", "baselineSnapshotValues", "sourceFixture"],
+  "caveat": "Planning estimate only, not financial, tax, investment, or legal advice."
+}

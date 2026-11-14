@@ -1,0 +1,9 @@
+{
+  "dashboardRows": [
+    { "metric": "availableMinutes", "value": 248 },
+    { "metric": "loadMinutes", "value": 195 },
+    { "metric": "switchCostMinutes", "value": 24 },
+    { "metric": "score", "value": 1 },
+    { "metric": "risk", "value": "low" }
+  ]
+}

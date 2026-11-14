@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Finance Decision Lab</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">Personal finance lab</p>
+          <h1 id="title">See the decision before it hits your month.</h1>
+          <p class="lede">Compare runway, surplus, debt interest, and rent-vs-buy pressure with one local fixture.</p>
+        </div>
+        <div class="decision-card">
+          <span>Current read</span>
+          <strong id="primary-readout">$0</strong>
+          <p id="primary-helper">Monthly surplus after fixed costs, variable spend, and minimum debt payments.</p>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Decision metrics" id="metrics"></section>
+
+      <section class="workspace" aria-label="Decision workspace">
+        <article class="panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Debt move</p>
+            <h2>Next payment impact</h2>
+          </div>
+          <div class="split-row">
+            <span>Interest this month</span>
+            <strong id="debt-interest">$0</strong>
+          </div>
+          <div class="split-row">
+            <span>Balance after payment</span>
+            <strong id="debt-balance">$0</strong>
+          </div>
+          <p class="note">Avalanche priority stays highest when the rate is expensive enough to matter more than balance size.</p>
+        </article>
+
+        <article class="panel panel-strong">
+          <div class="panel-heading">
+            <p class="eyebrow">Housing compare</p>
+            <h2>Rent vs buy pressure</h2>
+          </div>
+          <div class="large-number" id="housing-delta">$0</div>
+          <p id="housing-copy">Extra monthly cost of buying versus renting in the sample scenario.</p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Assumptions</p>
+            <h2>Fixture inputs</h2>
+          </div>
+          <div class="assumptions" id="assumptions"></div>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
