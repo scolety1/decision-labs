@@ -2,6 +2,8 @@
 
 Menu margin, labor/prime-cost and event contribution functions. The HTML is a static illustrative output, not an interactive calculator.
 
+Ratio inputs: `itemMargin` requires a positive finite price; `laborPercent` and `primeCostPercent` require positive finite sales. Positive amounts below one currency unit are supported. Zero-sales or zero-price ratios are undefined and now throw `RangeError` rather than silently substituting a denominator of 1. Callers should display an unavailable ratio for these cases. This validates the denominator only, not every business assumption or input.
+
 Start with [the functions](src/index.js), [tests](test/index.test.js), and [fixtures](fixtures/).
 
 From this folder, with Node.js 22+:
