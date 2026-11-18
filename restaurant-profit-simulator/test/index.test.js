@@ -20,6 +20,20 @@ const scenarioExpectedOutput = JSON.parse(
 );
 const analysisProof = readFileSync(resolve(__dirname, "../docs/codex/ANALYSIS_PROOF.md"), "utf8");
 
+test("uses actual positive sub-dollar denominators for margin and cost ratios", () => {
+  assert.deepEqual(itemMargin({ price: 0.5, ingredientCost: 0.25 }), { grossProfit: 0.25, marginPercent: 0.5 });
+  assert.equal(laborPercent({ laborCost: 0.1, sales: 0.5 }), 0.2);
+  assert.equal(primeCostPercent({ foodCost: 0.1, laborCost: 0.1, sales: 0.5 }), 0.4);
+});
+
+test("rejects nonpositive or nonfinite monetary denominators instead of inventing a ratio", () => {
+  for (const value of [0, -1, NaN, Infinity, -Infinity]) {
+    assert.throws(() => itemMargin({ price: value, ingredientCost: 0.25 }), /positive finite/);
+    assert.throws(() => laborPercent({ laborCost: 0.1, sales: value }), /positive finite/);
+    assert.throws(() => primeCostPercent({ foodCost: 0.1, laborCost: 0.1, sales: value }), /positive finite/);
+  }
+});
+
 test("computes item margin", () => {
   assert.deepEqual(itemMargin({ price: 18, ingredientCost: 5.4, packagingCost: 0.6 }), {
     grossProfit: 12,
@@ -31,6 +45,12 @@ test("computes weighted menu contribution", () => {
   assert.deepEqual(weightedMenuContribution(fixture.menu), {
     unitsSold: 60,
     averageContribution: fixture.expected.weightedAverageContribution
+  });
+});
+
+test("preserves gross contribution for complimentary menu items", () => {
+  assert.deepEqual(weightedMenuContribution([{ price: 0, ingredientCost: 1, unitsSold: 2 }]), {
+    unitsSold: 2, averageContribution: -1
   });
 });
 
