@@ -87,3 +87,25 @@ test("documents phase five launch smoke proof", () => {
   assert.match(launchCheck, /No Live-Data Dependency/);
   assert.doesNotMatch(launchCheck, /repair|quarantine/i);
 });
+
+test("calibration metrics count the selected bucket while the board retains all forecasts", async () => {
+  const selectors = ["#bucket", "#bucket-helper", "#metrics", "#forecast-table", "#review-label", "#review-score", "#review-copy"];
+  const elements = new Map(selectors.map((selector) => [selector, { textContent: "", innerHTML: "" }]));
+  const original = Object.getOwnPropertyDescriptor(globalThis, "document");
+  Object.defineProperty(globalThis, "document", {
+    configurable: true,
+    value: { querySelector: (selector) => elements.get(selector) }
+  });
+  try {
+    await import("../app.js");
+    assert.equal(elements.get("#bucket").textContent, "70-79%");
+    assert.match(elements.get("#metrics").innerHTML, /Forecasts in bucket<\/span><strong>2<\/strong>/);
+    assert.match(elements.get("#metrics").innerHTML, /Avg confidence<\/span><strong>75%/);
+    assert.match(elements.get("#metrics").innerHTML, /Hit rate<\/span><strong>50%/);
+    assert.equal((elements.get("#forecast-table").innerHTML.match(/class="row"/g) ?? []).length, 3);
+    assert.equal(elements.get("#bucket-helper").textContent, "Metrics summarize this bucket only; the board shows all 3 forecasts.");
+  } finally {
+    if (original) Object.defineProperty(globalThis, "document", original);
+    else delete globalThis.document;
+  }
+});

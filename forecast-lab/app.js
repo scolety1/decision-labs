@@ -21,8 +21,10 @@ const pressure = reviewCueScore({ staleness, evidenceDeltaCount: 2, nearResoluti
 const cue = forecastBoardReviewCue({ staleness, evidenceDeltaCount: 2, nearResolution: false });
 
 document.querySelector("#bucket").textContent = calibration.bucket;
+document.querySelector("#bucket-helper").textContent =
+  `Metrics summarize this bucket only; the board shows all ${forecasts.length} forecasts.`;
 document.querySelector("#metrics").innerHTML = [
-  ["Forecasts", forecasts.length],
+  ["Forecasts in bucket", calibration.count],
   ["Avg confidence", `${Math.round(calibration.averageConfidence * 100)}%`],
   ["Hit rate", `${Math.round(calibration.hitRate * 100)}%`],
   ["Avg Brier", calibration.averageBrier]
