@@ -4,17 +4,19 @@ export function round(value, digits = 4) {
 }
 
 export function itemMargin({ price, ingredientCost, packagingCost = 0 }) {
+  requirePositiveDenominator(price, "price");
   const grossProfit = price - ingredientCost - packagingCost;
   return {
     grossProfit: round(grossProfit, 2),
-    marginPercent: round(grossProfit / Math.max(1, price))
+    marginPercent: round(grossProfit / price)
   };
 }
 
 export function weightedMenuContribution(items) {
   const unitTotal = items.reduce((total, item) => total + item.unitsSold, 0);
   const weightedProfit = items.reduce((total, item) => {
-    const margin = itemMargin(item).grossProfit;
+    // Contribution remains defined for complimentary items; no price ratio is needed.
+    const margin = round(item.price - item.ingredientCost - (item.packagingCost ?? 0), 2);
     return total + margin * item.unitsSold;
   }, 0);
 
@@ -25,11 +27,19 @@ export function weightedMenuContribution(items) {
 }
 
 export function primeCostPercent({ foodCost, beverageCost = 0, laborCost, sales }) {
-  return round((foodCost + beverageCost + laborCost) / Math.max(1, sales));
+  requirePositiveDenominator(sales, "sales");
+  return round((foodCost + beverageCost + laborCost) / sales);
 }
 
 export function laborPercent({ laborCost, sales }) {
-  return round(laborCost / Math.max(1, sales));
+  requirePositiveDenominator(sales, "sales");
+  return round(laborCost / sales);
+}
+
+function requirePositiveDenominator(value, label) {
+  if (!Number.isFinite(value) || value <= 0) {
+    throw new RangeError(`${label} must be a positive finite number for a ratio.`);
+  }
 }
 
 export function wasteCost({ prepCost, wasteRate }) {
